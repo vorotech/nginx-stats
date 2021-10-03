@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  
+  nginx-stats:
+    image: nginx-stats
+    container_name: nginx-stats
+    build: .
+    ports:
+      - 5000:80
+      - 8080:8080
+  
+  nginx-prometheus-exporter:
+    image: nginx/nginx-prometheus-exporter
+    container_name: nginx-prometheus-exporter
+    depends_on:
+      - nginx-stats
+    ports:
+      - 9113:9113
+    environment:
+      SCRAPE_URI: http://nginx-stats:8080/stub_status
