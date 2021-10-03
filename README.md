@@ -2,7 +2,6 @@
 
 Very simple example of the `ngx_http_stub_status_module` module usage.
 
-
 The image built from this repo is available at DockerHub `vorotech/nginx-stats`
 
 The NGINX servers metrics are exposed at `http://localhost:8080/stub_status`.
